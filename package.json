@@ -1,6 +1,6 @@
 {
   "name": "egg-doras-ads",
-  "version": "1.0.1",
+  "version": "1.0.4",
   "description": "ads",
   "eggPlugin": {
     "name": "doraAds"
@@ -11,6 +11,7 @@
     "egg-plugin"
   ],
   "dependencies": {
+    "moment": "^2.24.0",
     "lodash": "^4.17.15"
   },
   "devDependencies": {
