@@ -4,11 +4,11 @@
  */
 'use strict'
 
+const moment = require('moment');
 module.exports = app => {
     const {
         DATE,
         STRING,
-        UUID,
         INTEGER,
         VIRTUAL
     } = app.Sequelize;
@@ -43,7 +43,19 @@ module.exports = app => {
             defaultValue: '_blank'
         },
         sImg: STRING(500), // 图片路径
-        alt: STRING // 广告alt标识
+        alt: STRING, // 广告alt标识
+        createdAt: {
+            type: DATE,
+            get() {
+                return moment(this.getDataValue('createdAt')).format('YYYY-MM-DD HH:mm:ss');
+            }
+        },
+        updatedAt: {
+            type: DATE,
+            get() {
+                return moment(this.getDataValue('updatedAt')).format('YYYY-MM-DD HH:mm:ss');
+            }
+        }
     }, {
         freezeTableName: true,
         tableName: 'doracms_ads_items',

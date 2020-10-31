@@ -59,7 +59,7 @@ let AdsController = {
                 state: fields.state,
                 height: fields.height,
                 carousel: fields.carousel,
-                type: fields.type,
+                ads_type: fields.ads_type,
                 comments: fields.comments
             }
 
@@ -127,7 +127,7 @@ let AdsController = {
                 state: fields.state,
                 height: fields.height,
                 carousel: fields.carousel,
-                type: fields.type,
+                ads_type: fields.ads_type,
                 comments: fields.comments
             }
 
@@ -145,6 +145,7 @@ let AdsController = {
                         currentId = '';
                     if (targetItem.id) {
                         // currentId = targetItem.id;
+                        delete targetItem._id;
                         await ctx.service.adsItem.update(targetItem.id, targetItem);
                     } else {
                         targetItem.ads_id = fields.id;
